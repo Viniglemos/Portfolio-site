@@ -37,7 +37,7 @@ jobs:
 
       # Step 6: Deploy to S3
       - name: Deploy to S3
-        uses: reggionick/s3-deploy@v4
+        uses: aws-actions/s3-sync@v2
         with:
           folder: dist
           bucket: ${{ secrets.AWS_S3_BUCKET_NAME }}
