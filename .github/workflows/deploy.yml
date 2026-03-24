@@ -1,11 +1,11 @@
 name: Deploy Portfolio to S3
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-# Trigger on push to main or manually
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -13,37 +13,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Install Node.js
-      - name: Setup Node.js
+      - name: Setup Node.js 24
         uses: actions/setup-node@v3
         with:
-          node-version: "24"
+          node-version: '24'
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Build the project
       - name: Build project
         run: npm run build
 
-      # Step 5: List build folder for debug
-      - name: List build output
-        run: ls -R dist
+      - name: Show build folder contents
+        run: |
+          echo "Contents of dist folder:"
+          ls -R dist
+          if [ ! -f dist/index.html ]; then
+            echo "❌ dist folder is missing index.html – stopping workflow."
+            exit 1
+          fi
 
-      # Step 6: Deploy to S3
       - name: Deploy to S3
-        uses: aws-actions/s3-sync@v2
+        uses: jakejarvis/s3-sync-action@v0.6.0
         with:
-          folder: dist
-          bucket: ${{ secrets.AWS_S3_BUCKET_NAME }}
-          bucket-region: sa-east-1
-          # optional: set true if you want to delete old files in S3
-          delete-removed: true
+          source_dir: dist        # <-- point to your build output
+          bucket: ${{ secrets.AWS_S3_BUCKET }}
+          args: --acl public-read --delete
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
