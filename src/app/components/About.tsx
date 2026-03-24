@@ -5,8 +5,8 @@ export function About() {
   const highlights = [
     { icon: <Globe className="w-6 h-6 text-cyan-400" />, title: "Global Background", desc: "Studied Cloud Engineering in Sydney, Australia." },
     { icon: <Terminal className="w-6 h-6 text-fuchsia-400" />, title: "IaC Focus", desc: "Passionate about Infrastructure as Code & automation." },
-    { icon: <Server className="w-6 h-6 text-emerald-400" />, title: "Cloud Native", desc: "Experience building with AWS & microservices." },
-    { icon: <Code2 className="w-6 h-6 text-blue-400" />, title: "Continuous Learning", desc: "Always building real-world projects & upskilling." },
+    { icon: <Server className="w-6 h-6 text-emerald-400" />, title: "Cloud Native", desc: "Experience building with AWS services." },
+    { icon: <Code2 className="w-6 h-6 text-blue-400" />, title: "Continuous Learning", desc: "Always building real-world projects." },
   ];
 
   return (
