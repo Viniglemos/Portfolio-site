@@ -39,7 +39,7 @@ jobs:
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: ${{ secrets.AWS_S3_BUCKET }}
+          bucket: ${{ vinicius-cloud-resume-site-2026 }}
           bucket-region: sa-east-1
           # optional: set true if you want to delete old files in S3
           delete-removed: true
