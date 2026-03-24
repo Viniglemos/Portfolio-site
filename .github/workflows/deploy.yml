@@ -1,5 +1,6 @@
 name: Deploy Portfolio to S3
-
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 # Trigger on push to main or manually
 on:
   push:
@@ -18,9 +19,10 @@ jobs:
 
       # Step 2: Install Node.js
       - name: Setup Node.js
+        uses: actions/checkout@v3
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: "24"
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -39,7 +41,7 @@ jobs:
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: ${{ secrets.AWS_S3_BUCKET }}
+          bucket: ${{ secrets.AWS_S3_BUCKET_NAME }}
           bucket-region: sa-east-1
           # optional: set true if you want to delete old files in S3
           delete-removed: true
