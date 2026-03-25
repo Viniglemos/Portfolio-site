@@ -47,4 +47,32 @@ GitHub Actions (CI/CD pipeline)
 Build with Vite (dist/)
    ↓
 AWS S3 Bucket (Static Hosting)
-  
+
+---
+
+## 🛠 Local Development
+
+To run this project locally:
+
+# Clone repository
+git clone https://github.com/Viniglemos/Portfolio-site.git
+
+# Navigate into project
+cd Portfolio-site
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+---
+
+### 💼 Contact
+
+Vinícius Gularte Lemos
+
+LinkedIn: https://www.linkedin.com/in/viniglemos/
+GitHub: https://github.com/Viniglemos
+
+Feel free to connect or reach out for opportunities, collaborations, or discussions in cloud engineering.
