@@ -1,78 +1,124 @@
+cat << 'EOF' > README.md
 # 🌐 Vinícius Gularte Lemos — Cloud Portfolio
 
-Welcome to my personal portfolio website. This project showcases my skills as a **Cloud Engineer**, along with hands-on experience in building and deploying modern web applications on AWS.
+Welcome to my personal cloud portfolio. This project demonstrates my hands-on experience building and deploying a modern web application using AWS cloud services and CI/CD practices.
 
 🔗 **Live Website**  
-http://vinicius-cloud-resume-site-2026.s3-website-sa-east-1.amazonaws.com
+https://viniciuslemos.click
 
 ---
 
 ## 🧠 About the Project
 
-This portfolio was built to demonstrate both **frontend development skills** and **cloud deployment knowledge**.
+This portfolio was designed and deployed to showcase my skills as a **Cloud Engineer**, combining frontend development with real-world cloud infrastructure.
 
-It is a fully responsive static website, automatically deployed to AWS using a CI/CD pipeline.
+The application is a static React-based website hosted on AWS, delivered globally through a CDN, and automatically deployed via a CI/CD pipeline.
+
+---
+
+## ☁️ Cloud Architecture
+
+User → Route 53 (DNS)  
+     → CloudFront (CDN + HTTPS)  
+     → S3 (Static Website Hosting)
 
 ---
 
 ## ⚙️ Tech Stack
 
-- **React** — Component-based UI development  
-- **Vite** — Fast build tool and development environment  
-- **Tailwind CSS** — Utility-first styling  
-- **AWS S3** — Static website hosting  
-- **GitHub Actions** — CI/CD pipeline for automated deployment  
+### Frontend
+- React
+- Vite
+- Tailwind CSS
+
+### Cloud & DevOps
+- AWS S3 — static website hosting  
+- AWS CloudFront — global content delivery (CDN)  
+- AWS Route 53 — DNS and domain management  
+- AWS Certificate Manager — SSL/TLS (HTTPS)  
+- GitHub Actions — CI/CD pipeline  
 
 ---
 
 ## 🚀 Features
 
-- Responsive and modern portfolio layout  
-- Downloadable CV (English & Portuguese)  
-- Automated deployment pipeline (push → deploy)  
-- Optimized static site performance  
-- Clean and minimal UI design  
+- Fully responsive portfolio website  
+- Custom domain with HTTPS  
+- Global CDN distribution for low latency  
+- Automated deployment on every push  
+- Optimized static asset delivery  
+- Clean and modern UI  
 
 ---
 
-## 🏗️ Architecture Overview
+## 🔄 CI/CD Pipeline
 
-```text
-Developer (Local)
-   ↓
-GitHub Repository (main branch)
-   ↓
-GitHub Actions (CI/CD pipeline)
-   ↓
-Build with Vite (dist/)
-   ↓
-AWS S3 Bucket (Static Hosting)
+- Code is pushed to GitHub  
+- GitHub Actions builds the project using Vite  
+- Static files (dist/) are generated  
+- Files are automatically deployed to AWS S3  
+- CloudFront serves updated content globally  
+
+---
+
+## 🔐 Security Best Practices
+
+- HTTPS enabled via AWS Certificate Manager  
+- No sensitive credentials stored in the repository  
+- AWS access managed securely via GitHub Secrets  
+
+---
+
+## 📱 Performance Considerations
+
+- CloudFront caching improves load times globally  
+- Gzip compression enabled for static assets  
+- Optimized build output using Vite  
+- Mobile performance considerations applied  
 
 ---
 
 ## 🛠 Local Development
 
-To run this project locally:
-
-# Clone repository
-git clone https://github.com/Viniglemos/Portfolio-site.git
-
-# Navigate into project
-cd Portfolio-site
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
+git clone https://github.com/Viniglemos/Portfolio-site.git  
+cd Portfolio-site  
+npm install  
+npm run dev  
 
 ---
 
-### 💼 Contact
+## 📁 Project Structure
 
-Vinícius Gularte Lemos
+src/  
+ ├── app/  
+ ├── components/  
+ ├── styles/  
+ └── main.tsx  
 
-LinkedIn: https://www.linkedin.com/in/viniglemos/
-GitHub: https://github.com/Viniglemos
+public/  
+.github/workflows/  
+package.json  
+README.md  
 
-Feel free to connect or reach out for opportunities, collaborations, or discussions in cloud engineering.
+---
+
+## 🎨 Design Credits
+
+- UI components inspired by shadcn/ui (MIT License)  
+- Images sourced from Unsplash (free license)  
+
+---
+
+## 💼 About Me
+
+I am a Cloud Engineering student focused on building real-world projects using AWS, automation, and modern development tools.
+
+---
+
+## 📫 Contact
+
+- LinkedIn: https://www.linkedin.com/in/vinicius-lemos-29796a169/?skipRedirect=true 
+- GitHub: https://github.com/Viniglemos  
+
+Feel free to connect — I’m open to opportunities and collaborations in cloud engineering.
+EOF
