@@ -1,5 +1,5 @@
 node_modules/
 .env/
 ATTRIBUITIONS.md/
-postcee.config.mjs/
+postcss.config.mjs/
 dist/
