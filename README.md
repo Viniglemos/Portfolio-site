@@ -1,4 +1,4 @@
-cat << 'EOF' > README.md
+
 # 🌐 Vinícius Gularte Lemos — Cloud Portfolio
 
 Welcome to my personal cloud portfolio. This project demonstrates my hands-on experience building and deploying a modern web application using AWS cloud services and CI/CD practices.
